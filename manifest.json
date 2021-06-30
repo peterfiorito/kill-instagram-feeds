@@ -1,0 +1,33 @@
+  {
+    "name": "Kill instagram feeds",
+    "version": "1.0",
+    "description": "Make instagram uninteresting and overcome your addiction",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "permissions": ["declarativeContent", "activeTab", "storage", "tabs"],
+    "page_action": {
+      "default_icon": {
+          "16": "images/kill-instagram.png",
+          "48": "images/kill-instagram.png",
+          "128": "images/kill-instagram.png"
+      }
+    },
+    "icons": {
+        "16": "images/kill-instagram.png",
+        "48": "images/kill-instagram.png",
+        "128": "images/kill-instagram.png"
+    },
+    "content_scripts" : [
+      {
+        "matches" : [
+           "*://*.instagram.com/*"
+        ],
+        "js" : [ "contentscript.js" ],
+        "run_at" : "document_idle",
+        "all_frames" : false
+      }
+    ],
+    "manifest_version": 2
+  }
